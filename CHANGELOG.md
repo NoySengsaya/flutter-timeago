@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.0.0
+- Migrate to Dart 3 and Flutter 3 (Sound Null Safety)
+- Update dependencies
+
 ## 2.0.26
 - Added Catalan support @comlaterra
 

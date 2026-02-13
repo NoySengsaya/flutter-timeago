@@ -21,8 +21,6 @@ Map<String, LookupMessages> _lookupMessagesMap = {
 /// with the desired messages
 ///
 void setLocaleMessages(String locale, LookupMessages lookupMessages) {
-  assert(locale != null, '[locale] must not be null');
-  assert(lookupMessages != null, '[lookupMessages] must not be null');
   _lookupMessagesMap[locale] = lookupMessages;
 }
 
@@ -35,7 +33,7 @@ void setLocaleMessages(String locale, LookupMessages lookupMessages) {
 /// - If [allowFromNow] is passed, format will use the From prefix, ie. a date
 ///   5 minutes from now in 'en' locale will display as "5 minutes from now"
 String format(DateTime date,
-    {String locale, DateTime clock, bool allowFromNow}) {
+    {String? locale, DateTime? clock, bool? allowFromNow}) {
   final _locale = locale ?? 'en';
   final _allowFromNow = allowFromNow ?? false;
   final messages = _lookupMessagesMap[_locale] ?? EnMessages();
@@ -86,6 +84,6 @@ String format(DateTime date,
   }
 
   return [prefix, result, suffix]
-      .where((str) => str != null && str.isNotEmpty)
+      .where((str) => str.isNotEmpty)
       .join(messages.wordSeparator());
 }
